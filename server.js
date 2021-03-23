@@ -3,12 +3,16 @@ const inquirer = require('inquirer');
 
 const connection = mysql.createConnection({
     host: 'locahost',
-    port: 3350,
+    port: 3306,
     user: 'root',
     password: 'password',
     database: 'cms_db',
 });
-
+connection.connect((err) => {
+    if (err) throw err;
+    runSearch();
+}); 
+const runSearch = () => {
 inquirer
     .prompt([
         {
@@ -26,6 +30,44 @@ inquirer
                 "Update Employee Role",
                 "Add Department",
                 "Exit",
-            ]
+            ],
         }
     ])
+    .then((answer) => {
+        switch (answer.action) {
+            case "View Employees":
+                employeeSearch();
+                break;
+            case "View Departments":
+                departmentSearch();
+                break;
+            case "View All Roles":
+                roleSearch();
+                break;
+            case "View All Employees By Department":
+                empdepSearch();
+                break;
+            case "View All Employees By Role":
+                emproleSearch();
+                break;
+            case "Add Employee":
+                employeeAdd();
+                break;
+            case "Add Role":
+                roleAdd();
+                break;
+            case "Update Employee Role":
+                roleUpdate();
+                break;
+            case "Add Department":
+                departmentUpdate();
+                break;
+            case "Exit":
+                connection.end();
+                break;
+            default:
+                console.log(`Invalid action ${answer.action}`);
+                break;
+        }
+    });
+};
