@@ -1,5 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+const connection = require('connection');
+const consoleTable = require('console.table');
 
 const connection = mysql.createConnection({
     host: 'locahost',
@@ -71,3 +73,27 @@ inquirer
         }
     });
 };
+
+const employeeSearch = () => {
+    const query = 'SELECT * FROM employee';
+    connection.query(query, (err, res) => {
+        console.table(res);
+        runSearch();
+    })
+};
+
+const departmentSearch = () => {
+    const query = 'SELECT * FROM department';
+    connection.query(query, (err, res) => {
+        console.table(res)
+        runSearch();
+    })
+};
+
+const roleSearch = () => {
+    const query = 'SELECT * from role';
+    connection.query(query, (err, res) => {
+        console.table(res);
+        runSearch();
+    })
+}
