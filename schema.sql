@@ -26,20 +26,20 @@ CREATE TABLE employee (
     PRIMARY KEY (id),
 )
 
-INSERT INTO role (id, title, salary, department_id) values (1, 'Production Manager', 150000.25, 1)
-INSERT INTO role (id, title, salary, department_id) values (1, 'Production Lead', 120000, 2)
-INSERT INTO role (id, title, salary, department_id) values (1, 'Assembler', 100000.25, 3)
-INSERT INTO role (id, title, salary, department_id) values (1, 'Assistant', 90000.25, 4)
+INSERT INTO role (id, title, salary, department_id) values (1, 'Production Manager', 150000.25, 1);
+INSERT INTO role (id, title, salary, department_id) values (1, 'Production Lead', 120000, 2);
+INSERT INTO role (id, title, salary, department_id) values (1, 'Assembler', 100000.25, 3);
+INSERT INTO role (id, title, salary, department_id) values (1, 'Assistant', 90000.25, 4);
 
-INSERT INTO role (id, title, salary, department_id) values (2, 'Engineering Manager', 150000.25, 1)
-INSERT INTO role (id, title, salary, department_id) values (2, 'Lead Engineer', 130000, 2)
-INSERT INTO role (id, title, salary, department_id) values (2, 'Schematics', 110000.25, 3)
-INSERT INTO role (id, title, salary, department_id) values (2, 'Grunt', 95000.25, 4)
+INSERT INTO role (id, title, salary, department_id) values (2, 'Engineering Manager', 150000.25, 1);
+INSERT INTO role (id, title, salary, department_id) values (2, 'Lead Engineer', 130000, 2);
+INSERT INTO role (id, title, salary, department_id) values (2, 'Schematics', 110000.25, 3);
+INSERT INTO role (id, title, salary, department_id) values (2, 'Grunt', 95000.25, 4);
 
-INSERT INTO role (id, title, salary, department_id) values (3, 'Quality Manager', 150000.25, 1)
-INSERT INTO role (id, title, salary, department_id) values (3, 'Inspector', 100000.25, 2)
-INSERT INTO role (id, title, salary, department_id) values (3, 'Co-Inspector', 100000.25, 3)
-INSERT INTO role (id, title, salary, department_id) values (3, 'Quality Assistant', 80000.25, 1)
+INSERT INTO role (id, title, salary, department_id) values (3, 'Quality Manager', 150000.25, 1);
+INSERT INTO role (id, title, salary, department_id) values (3, 'Inspector', 100000.25, 2);
+INSERT INTO role (id, title, salary, department_id) values (3, 'Co-Inspector', 100000.25, 3);
+INSERT INTO role (id, title, salary, department_id) values (3, 'Quality Assistant', 80000.25, 1);
 
 
 
