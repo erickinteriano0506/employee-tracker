@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
     port: 3306,
     user: 'root',
     password: 'password',
-    database: 'cms_db',
+    database: 'cms_DB',
 });
 connection.connect((err) => {
     if (err) throw err;
@@ -36,8 +36,9 @@ inquirer
         }
     ])
     .then((answer) => {
-        switch (answer.action) {
-            case "View Employees":
+        console.log(answer);
+        switch (answer.options) {
+            case "View employees":
                 employeeSearch();
                 break;
             case "View Departments":
