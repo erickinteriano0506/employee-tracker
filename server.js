@@ -174,4 +174,40 @@ const departmentUpdate = () => {
             )
         })
 };
+
+const roleAdd = () => {
+    inquirer
+        .prompt ([
+            {
+                name: 'roleID',
+                type: 'input',
+                message: 'What is the new role ID?',
+            },
+            {
+                name: 'newRole',
+                type: 'input',
+                message: 'What role do you want to add?',
+            },
+            {
+                name: 'salary',
+                type: 'input',
+                message: 'What is their salary?',
+            },
+        ])
+        .then((answer => {
+            connection.query(
+                'INSERT INTO role SET ?',
+                {
+                   id: answer.roleID,
+                   title: answer.newRole,
+                   salary: answer.salary 
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Role has been added.');
+                    runSearch();
+                }
+            );
+        }));
+};
                     
