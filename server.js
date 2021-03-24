@@ -13,66 +13,57 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
     if (err) throw err;
     runSearch();
-}); 
+});
 const runSearch = () => {
-inquirer
-    .prompt([
-        {
-            type: 'list',
-            message: 'What would you like to do?',
-            name: 'options',
-            choices: [
-                "View employees",
-                "View Departments",
-                "View All Roles",
-                "View All Employees By Department",
-                "View All Employees By Role",
-                "Add Employee",
-                "Add Role",
-                "Update Employee Role",
-                "Add Department",
-                "Exit",
-            ],
-        }
-    ])
-    .then((answer) => {
-        console.log(answer);
-        switch (answer.options) {
-            case "View employees":
-                employeeSearch();
-                break;
-            case "View Departments":
-                departmentSearch();
-                break;
-            case "View All Roles":
-                roleSearch();
-                break;
-            case "View All Employees By Department":
-                empdepSearch();
-                break;
-            case "View All Employees By Role":
-                emproleSearch();
-                break;
-            case "Add Employee":
-                employeeAdd();
-                break;
-            case "Add Role":
-                roleAdd();
-                break;
-            case "Update Employee Role":
-                roleUpdate();
-                break;
-            case "Add Department":
-                departmentUpdate();
-                break;
-            case "Exit":
-                connection.end();
-                break;
-            default:
-                console.log(`Invalid action ${answer.action}`);
-                break;
-        }
-    });
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                message: 'What would you like to do?',
+                name: 'options',
+                choices: [
+                    "View employees",
+                    "View Departments",
+                    "View All Roles",
+                    
+                    "Add Employee",
+                    "Add Role",
+
+                    "Add Department",
+                    "Exit",
+                ],
+            }
+        ])
+        .then((answer) => {
+            console.log(answer);
+            switch (answer.options) {
+                case "View employees":
+                    employeeSearch();
+                    break;
+                case "View Departments":
+                    departmentSearch();
+                    break;
+                case "View All Roles":
+                    roleSearch();
+                    break;
+                
+                case "Add Employee":
+                    employeeAdd();
+                    break;
+                case "Add Role":
+                    roleAdd();
+                    break;
+                case "Add Department":
+                    departmentUpdate();
+                    break;
+                case "Exit":
+                    connection.end();
+                    break;
+                default:
+                    console.log(`Invalid action ${answer.action}`);
+                    break;
+            }
+        });
 };
 
 const employeeSearch = () => {
@@ -121,9 +112,9 @@ const employeeAdd = () => {
                 message: 'What is their last name?',
             },
             {
-               name: 'roleID',
-               type: 'input',
-               message: 'What is their role ID?' 
+                name: 'roleID',
+                type: 'input',
+                message: 'What is their role ID?'
             },
         ])
         .then((answer) => {
@@ -142,12 +133,12 @@ const employeeAdd = () => {
                 }
             )
         })
-    
+
 };
 
 const departmentUpdate = () => {
     inquirer
-        .prompt ([
+        .prompt([
             {
                 name: 'department_id',
                 type: 'input',
@@ -162,22 +153,22 @@ const departmentUpdate = () => {
         .then((answer) => {
             connection.query(
                 'INSERT INTO department SET ?',
-            {
-                name: answer.department,
-                id: answer.department_id,
-            },
-            (err) => {
-                if (err) throw err;
-                console.log('Department has been added.');
-                runSearch();
-            },
+                {
+                    name: answer.department,
+                    id: answer.department_id,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Department has been added.');
+                    runSearch();
+                },
             )
         })
 };
 
 const roleAdd = () => {
     inquirer
-        .prompt ([
+        .prompt([
             {
                 name: 'roleID',
                 type: 'input',
@@ -194,13 +185,13 @@ const roleAdd = () => {
                 message: 'What is their salary?',
             },
         ])
-        .then((answer => {
+        .then((answer) => {
             connection.query(
                 'INSERT INTO role SET ?',
                 {
-                   id: answer.roleID,
-                   title: answer.newRole,
-                   salary: answer.salary 
+                    id: answer.roleID,
+                    title: answer.newRole,
+                    salary: answer.salary
                 },
                 (err) => {
                     if (err) throw err;
@@ -208,6 +199,15 @@ const roleAdd = () => {
                     runSearch();
                 }
             );
-        }));
+        });
 };
-                    
+
+
+    
+
+
+
+
+
+
+
