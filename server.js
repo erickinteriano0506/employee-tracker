@@ -143,5 +143,35 @@ const employeeAdd = () => {
             )
         })
     
-}
+};
+
+const departmentUpdate = () => {
+    inquirer
+        .prompt ([
+            {
+                name: 'department_id',
+                type: 'input',
+                message: 'What is the new department ID?'
+            },
+            {
+                name: 'department',
+                type: 'input',
+                message: 'What department would you like to add?'
+            },
+        ])
+        .then((answer) => {
+            connection.query(
+                'INSERT INTO department SET ?',
+            {
+                name: answer.department,
+                id: answer.department_id,
+            },
+            (err) => {
+                if (err) throw err;
+                console.log('Department has been added.');
+                runSearch();
+            },
+            )
+        })
+};
                     
