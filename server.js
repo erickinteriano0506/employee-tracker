@@ -79,6 +79,7 @@ const employeeSearch = () => {
     connection.query('SELECT * FROM employee', (err, res) => {
         if (err) throw err;
         console.log(res);
+        console.table(res);
         runSearch();
     });
 };
@@ -87,6 +88,7 @@ const departmentSearch = () => {
     connection.query('SELECT * FROM department', (err, res) => {
         if (err) throw err;
         console.log(res);
+        console.table(res);
         runSearch();
     })
 };
@@ -95,6 +97,51 @@ const roleSearch = () => {
     connection.query('SELECT * FROM role', (err, res) => {
         if (err) throw err;
         console.log(res);
+        console.table(res);
         runSearch();
     })
 };
+
+const employeeAdd = () => {
+    inquirer
+        .prompt([
+            {
+                name: 'companyID',
+                type: 'input',
+                message: 'What is their ID number?'
+            },
+            {
+                name: 'firstname',
+                type: 'input',
+                massage: 'What is the employees first name?',
+            },
+            {
+                name: 'lastname',
+                type: 'input',
+                message: 'What is their last name?',
+            },
+            {
+               name: 'roleID',
+               type: 'input',
+               message: 'What is their role ID?' 
+            },
+        ])
+        .then((answer) => {
+            connection.query(
+                'INSERT INTO employee SET ?',
+                {
+                    id: answer.companyID,
+                    first_name: answer.firstname,
+                    last_name: answer.lastname,
+                    role_id: answer.roleID,
+                },
+                (err) => {
+                    if (err) throw err;
+                    console.log('Employee has been added.');
+                    runSearch();
+                }
+            )
+        })
+    
+}
+                    

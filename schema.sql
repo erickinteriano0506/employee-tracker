@@ -18,7 +18,7 @@ CREATE TABLE role (
 );
 
 CREATE TABLE employee (
-    id INT,
+    id INT AUTO_INCREMENT,
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     role_id INT,
@@ -47,18 +47,18 @@ INSERT INTO department (id, name) values (1,'Production');
 INSERT INTO department (id, name) values (2,'Engineering');
 INSERT INTO department (id, name) values (3,'Quality Control');
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('James', 'Hetfield', 1, 1);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Tom', 'Araya', 2, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Dave', 'Mustaine', 3, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Bruce', 'Dickinson', 4, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Kirk', 'Hammett', 5, 2);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Kerry', 'King', 6, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Marty', 'Freidman', 7, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Dave', 'Murray', 8, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Cliff', 'Burton', 9, 3);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Jeff', 'Hanneman', 10, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('David', 'Ellefson', 11, NULL);
-INSERT INTO employee (first_name, last_name, role_id, manager_id) values ('Steve', 'Harris', 12, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (1, 'James', 'Hetfield', 1, 1);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (2, 'Tom', 'Araya', 2, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (3, 'Dave', 'Mustaine', 3, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (4, 'Bruce', 'Dickinson', 4, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (5, 'Kirk', 'Hammett', 5, 2);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (6, 'Kerry', 'King', 6, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (7, 'Marty', 'Freidman', 7, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (8, 'Dave', 'Murray', 8, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (9, 'Cliff', 'Burton', 9, 3);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (10, 'Jeff', 'Hanneman', 10, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (11, 'David', 'Ellefson', 11, NULL);
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id) values (12, 'Steve', 'Harris', 12, NULL);
 
 
 
